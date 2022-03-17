@@ -17,6 +17,14 @@ _Follow these steps for run the project._
    ```sh
    make
    ```
+
+Output : 
+   ```shell
+    Make: Starting environment containers.
+    Recreating autoCentreon ... done
+    Recreating database     ... done
+   ```
+
 3. Check logs 
    ```sh
    docker logs autoCentreon
