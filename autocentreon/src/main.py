@@ -1,46 +1,22 @@
-#!/usr/bin/python3
+from hosts import *
+from autocentreon import *
 
-import pymysql
-import json
-import csv
-import os
-import getopt
-import requests
 
-from configuration import *
-from readExtract import *
-from autoCentreon import *
-import host
-from print import *
-
-                    
 def main():
-    try:
+    autoC = autocentreon()
 
-        arguments, values = getopt.getopt(argumentList, options, long_options)
-        for currentArgument, currentValue in arguments:
+    # Load conf file in class
+    autoC.load_conf()
+    #autoC.print_conf()
 
-            if currentArgument in ("-h", "--help"):
-                print("--- Help\n")
-                print("Options :")
-                print("\t -p (pasteli)(Obligatoire), -c (centreon), -d (dns), -r (radius), -a (ansibleHost), -s (secureCRT)")
+    # Load CSV file in class
+    autoC.load_csv(csv_file="inventory/20220103.csv")
 
-            elif currentArgument in ("-p", "--pasteli"):
-                read_csv(extract_pasteli)
-                print_sizelist()
-                #print_lists()
+    autoC.print_sizelists()
+    #autoC.print_lists()
 
-            elif currentArgument in ("-c", "--centreon"):
-                print("--- Start AutoCentreon")
-                autoCentreon(hosts_list, desserte_list, centreon_user, centreon_password)
-
-        
-            elif currentArgument in ("-t", "--test"):
-                #autoSSH()
-                print("--- Start Test")
-    except getopt.error as err:
-        print(str(err))
-
+    # Execute
+    autoC.execute()
 
 if __name__ == "__main__":
     main()
