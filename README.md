@@ -1,5 +1,36 @@
 # autocentreon
 Docker, Postgres and python projets for centreon needs
+### Prerequisite
+
+* Centreon platform installed up and running
+* Configure "autocentreon.conf" in "autocentreon/src/" with your credentials
+* Configure user for SQL MariaDB Connection (autocentreon.conf)
+* Add Manually Host Template and Pollers (Collector) in Centreon web Plaform like in the "inventory.csv file"
+* Configure your inventory list ("inventory/date.csv")   
+
+Exemple : 
+   ``` json
+   {
+        "inventory-path" : "inventory",
+        "centreon-database" : {
+            "host" : "192.168.1.5",
+            "username":"autotrap",
+            "password":"centreon"
+        },
+        "centreon-api" : {
+            "host" : "192.168.1.5",
+            "username":"clapi",
+            "password":"clapi"
+        },
+        "postgres": {
+            "host" : "172.17.0.2",
+            "username" : "postgres",
+            "password" : "autocentreon",
+            "database" : "postgres",
+            "port" : "5432"
+        }
+    }
+   ```
 
 ### Installation
 
