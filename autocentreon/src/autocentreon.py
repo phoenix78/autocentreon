@@ -1,8 +1,6 @@
 import glob
 import json
 import csv
-import pandas
-
 from hosts import *
 import requests
 import urllib3
