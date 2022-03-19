@@ -1,38 +1,43 @@
 # autocentreon
 Docker, Postgres and python projets for centreon needs
-### Prerequisite
-
+### Configuration and Installation Prerequisite
+#### Centreon Plateform 
 * Centreon platform installed up and running
-* Configure "autocentreon.conf" in "autocentreon/src/" with your credentials
 * Configure user for SQL MariaDB Connection (autocentreon.conf)
 * Add Manually Host Template and Pollers (Collector) in Centreon web Plaform like in the "inventory.csv file"
-* Configure your inventory list ("inventory/date.csv")   
+* Add User un centreon web Platforms who can reach Centreon API
 
-Exemple : 
+#### Script and VM
+* Install _Docker_, _Docker-compose_ and _Make_ on your VM
+* Configure _"autocentreon.conf"_ in "autocentreon/src/" with your credentials
+* Configure your inventory list ("inventory/date.csv")
+** Follow this columns order : hostname, alias, IP, etat_sup, model, templates, pollers, groups, categories
+
+Exemple autocentreon.conf : 
    ``` json
    {
         "inventory-path" : "inventory",
         "centreon-database" : {
             "host" : "192.168.1.5",
-            "username":"autotrap",
-            "password":"centreon"
+            "username":"centreon-db-user",
+            "password":""
         },
         "centreon-api" : {
             "host" : "192.168.1.5",
-            "username":"clapi",
-            "password":"clapi"
+            "username":"centreon-api-user",
+            "password":""
         },
         "postgres": {
             "host" : "172.17.0.2",
             "username" : "postgres",
-            "password" : "autocentreon",
+            "password" : "",
             "database" : "postgres",
             "port" : "5432"
         }
     }
    ```
 
-### Installation
+### Run project 
 
 _Follow these steps for run the project._
 
@@ -49,19 +54,19 @@ _Follow these steps for run the project._
    make
    ```
 
-Output : 
+Result Output : 
    ```shell
     Make: Starting environment containers.
     Recreating autoCentreon ... done
     Recreating database     ... done
    ```
 
-3. Check logs 
+4. Check Autocentreon logs 
    ```sh
    docker logs autoCentreon
    ```
 
-Output : 
+Result Output : 
    ```shell
     root@shark:/home/shark/autocentreon# docker logs autoCentreon
     Hosts list: 27
