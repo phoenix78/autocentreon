@@ -14,7 +14,7 @@ Docker, Postgres and python projets for centreon needs
 * Follow this columns order for : hostname, alias, IP, etat_sup, model, templates, pollers, groups, categories
 * Setup a _.env_ file in root project directory with : 
    ``` shell
-   POSTGRES_PASSWORD="phoenix"
+   POSTGRES_PASSWORD="YOUR_PASSWORD"
    ```
 
 Exemple autocentreon.conf : 
