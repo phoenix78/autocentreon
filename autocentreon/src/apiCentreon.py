@@ -137,11 +137,15 @@ def post_values(action, myObject, values, token):
 
 
 def getToken(centreon_host, centreon_user, centreon_password):
-    token = requests.post("http://" + centreon_host + '/centreon/api/index.php?action=authenticate',
-                          data={"username": centreon_user, "password": centreon_password}, verify=False)
-    token = token.json()
-    # print(token)
-    return token['authToken']
+    try:
+        token = requests.post("http://" + centreon_host + '/centreon/api/index.php?action=authenticate',
+                            data={"username": centreon_user, "password": centreon_password}, verify=False)
+        token = token.json()
+        # print(token)
+        return token['authToken']
+    except:
+        print("ERROR API CENTREON CONNECTION", "PLEASE VERIFY YOUR CENTREON CREADENTIALS")
+        exit(1)
 
 
 def getAllHostsInfo(centreondb, centreonuser, centreonpass):

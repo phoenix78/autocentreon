@@ -28,3 +28,6 @@ server26;alias26;10.0.18.5;ZERO;servermodel;TH_Net-Juniper-MX80-SNMP-NOMI;Centra
 server27;alias27;10.7.18.15;NOMI;servermodel;TH_Net-Juniper-MX80-SNMP-NOMI;Central;7.239250,2,27026;servergroup1,servergroup28;cat1,cat28
 server28;alias28;10.7.18.16;NOMI;servermodel;TH_Net-Juniper-MX80-SNMP-NOMI;Central;7.239250,2,27027;servergroup1,servergroup29;cat1,cat29
 server29;alias29;10.1.18.3;NOMI;servermodel;TH_Net-Juniper-MX80-SNMP-NOMI;Central;7.239250,2,27028;servergroup1,servergroup30;cat1,cat30
+addserver1;alias29;10.1.18.3;NOMI;servermodel;TH_Net-Juniper-MX80-SNMP-NOMI;Central;7.239250,2,27028;servergroup1,servergroup30;cat1,cat30
+addserver2;alias29;10.1.18.3;NOMI;servermodel;TH_Net-Juniper-MX80-SNMP-NOMI;Central;7.239250,2,27028;servergroup1,servergroup30;cat1,cat30
+addserver3;alias29;10.1.18.3;NOMI;servermodel;TH_Net-Juniper-MX80-SNMP-NOMI;Central;7.239250,2,27028;servergroup1,servergroup30;cat1,cat30

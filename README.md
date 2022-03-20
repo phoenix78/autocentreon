@@ -11,7 +11,11 @@ Docker, Postgres and python projets for centreon needs
 * Install _Docker_, _Docker-compose_ and _Make_ on your VM
 * Configure _"autocentreon.conf"_ in "autocentreon/src/" with your credentials
 * Configure your inventory list ("inventory/date.csv")
-** Follow this columns order : hostname, alias, IP, etat_sup, model, templates, pollers, groups, categories
+* Follow this columns order for : hostname, alias, IP, etat_sup, model, templates, pollers, groups, categories
+* Setup a _.env_ file in root project directory with : 
+   ``` shell
+   POSTGRES_PASSWORD="phoenix"
+   ```
 
 Exemple autocentreon.conf : 
    ``` json

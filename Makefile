@@ -1,11 +1,13 @@
+include docker.ini
+
 all: build start
 
 build:
-	$(info Make: Building "$(ENV)" environment images.)
+	$(info Make: Building environment images.)
 	@TAG=$(TAG) docker-compose build --no-cache
  
 start:
-	$(info Make: Starting "$(ENV)" environment containers.)
+	$(info Make: Starting environment containers.)
 	@TAG=$(TAG) docker-compose $(COMPOSE_FILE_PATH) up -d
  
 stop:
