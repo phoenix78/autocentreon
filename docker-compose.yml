@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  autocentreon:
+    build: 
+      context: ${DOCKER_AUTOCENTREON_DIR}
+    container_name: autocentreon
+    depends_on:
+      - database
+    links: 
+      - database
+  database:
+    build: 
+      context: ${DOCKER_DB_DIR}
+    container_name: database
+    restart: always
+    environment:
+      - POSTGRES_USER=autocentreon_user
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=autocentreon
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
